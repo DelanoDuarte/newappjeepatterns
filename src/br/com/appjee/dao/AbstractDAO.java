@@ -49,11 +49,10 @@ public abstract class AbstractDAO<T> implements Serializable {
 			entityManager.getTransaction().begin();
 			entity = entityManager.merge(entity);
 			entityManager.getTransaction().commit();
-			entityManager.close();
 		} catch (Exception e) {
 			logger.info("Erro ao Atualizar" + e.getMessage());
 		} finally {
-
+			// entityManager.close();
 		}
 		return entity;
 

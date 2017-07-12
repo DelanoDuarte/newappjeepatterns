@@ -45,7 +45,7 @@ public class GratificacaoFormController extends HttpServlet {
 		if (result)
 			request.setAttribute("msg", "Nova Gratificação Cadastrada com Sucesso !");
 
-		request.getRequestDispatcher("/pages/gratificacao/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/Gratificacao/list").forward(request, response);
 	}
 
 	private boolean salvarGratificacao(String nome, String valor) {

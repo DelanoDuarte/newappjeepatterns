@@ -30,25 +30,25 @@
 							method="post">
 			<div class="form-group">
 				<label for="nome">Nome do Funcionário:</label> <input type="text"
-									class="form-control" id="nome" name="nome">
+									class="form-control" id="nome" name="nome" required>
 			</div>
 			<div class="form-group">
 				<label for="sobrenome">Sobrenome:</label> <input type="text"
-									class="form-control" id="sobrenome" name="sobrenome">
+									class="form-control" id="sobrenome" name="sobrenome" required>
 			</div>
 			<div class="form-group">
 				<label for="cpf">CPF:</label> <input type="text"
-									class="form-control" id="cpf" name="cpf">
+									class="form-control" id="cpf" name="cpf" required>
 			</div>
 			<div class="form-group">
 				<label for="dataNascimento">Data de Nascimento:</label> <input
 									type="date" class="form-control" id="dataNascimento"
-									name="dataNascimento">
+									name="dataNascimento" required>
 			</div>
 			
 			<div class="form-group">
 				<label for="salario">Salario:</label> <input type="number"
-									class="form-control" id="salario" name="salario">
+									class="form-control" id="salario" name="salario" required>
 			</div>
 			
 			
@@ -91,13 +91,24 @@
 					</div>
 			</div>
 			
-			
-			<button type="submit" class="btn btn-success">Salvar</button>
+			<div class="row">	
+					
+					<div align="center">
+						<button type="submit" class="btn btn-success">Salvar</button>
+						<button type="reset" class="btn btn-warning">Limpar</button>
+					</div>
+						
+			</div>
 		
 			</form>
 		
 			</div>
 		</div>
+		
+		<div align="left">			
+						<a class="btn btn-primary"
+						href="${pageContext.request.contextPath}/Funcionario/list">Cancelar</a>
+		</div>	
 	</div>	
 
 	</div>
