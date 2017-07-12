@@ -11,7 +11,11 @@
 	<%@ include file="/WEB-INF/tags/menu.jsp"%>	
 	
   <div class="container">
-
+	
+	<c:if test="${not empty msg}">
+		<div class="alert alert-success" role="alert">${msg}</div>
+	</c:if>
+	
 		<div class="col-md-12">
 			<div class="page-header">
 				<div align="center">

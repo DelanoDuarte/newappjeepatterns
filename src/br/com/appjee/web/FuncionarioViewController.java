@@ -1,4 +1,4 @@
-package br.com.appjee.controller;
+package br.com.appjee.web;
 
 import java.io.IOException;
 

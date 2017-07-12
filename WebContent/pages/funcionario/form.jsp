@@ -59,11 +59,11 @@
 			<div class="form-group">
 				<label for="gratificacoes">Gratificações:</label>
 				<br />
-				<select id="gratificacoes" class="selectpicker" multiple
+			<select id="gratificacoes" class="form-control" multiple
 											title="Selectione as Gratificações do Funcionário" multiple
 											data-actions-box="true" name="gratificacao">
 					<c:forEach items="${gratificacoes}" var="gratificacao">	
-					  <option value="${gratificacao.id}">Nome: ${gratificacao.nome} - Valor: ${gratificacao.valor}</option>
+					  <option value="${gratificacao.id}">Nome: ${gratificacao.nome} - Valor:R$ ${gratificacao.valor}</option>
 					</c:forEach>
 			</select>
 			</div>
@@ -79,11 +79,11 @@
 			<div class="form-group">
 				<label for="descontos">Descontos:</label>
 				<br />
-				<select id="descontos" class="selectpicker" multiple
+			<select id="descontos" class="form-control" multiple
 											title="Selectione os Descontos do Funcionário" multiple
 											data-actions-box="true" name="desconto">
 					<c:forEach items="${descontos}" var="desconto">	
-					  <option value="${desconto.id}">Nome: ${desconto.nome} - Valor: ${desconto.valor}</option>
+					  <option value="${desconto.id}">Nome: ${desconto.nome} - Valor:R$ ${desconto.valor}</option>
 					 </c:forEach>
 			</select>
 			</div>

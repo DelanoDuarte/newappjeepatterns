@@ -1,4 +1,4 @@
-package br.com.appjee.controller;
+package br.com.appjee.web;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -67,11 +67,15 @@ public class FuncionarioFormController extends HttpServlet {
 		String[] gratificacoes = request.getParameterValues("gratificacao");
 		String[] descontos = request.getParameterValues("desconto");
 
-		salvarFuncionario(nome, sobrenome, cpf, dataNascimento, salario, gratificacoes, descontos);
+		boolean result = salvarFuncionario(nome, sobrenome, cpf, dataNascimento, salario, gratificacoes, descontos);
+
+		if (result)
+			request.setAttribute("msg", "Novo Funcionario Cadastrado com Sucesso !");
+
 		request.getRequestDispatcher("/pages/funcionario/list.jsp").forward(request, response);
 	}
 
-	private void salvarFuncionario(String nome, String sobrenome, String cpf, String dataNascimento, String salario,
+	private boolean salvarFuncionario(String nome, String sobrenome, String cpf, String dataNascimento, String salario,
 			String[] gratificacoes, String[] descontos) {
 
 		try {
@@ -100,10 +104,15 @@ public class FuncionarioFormController extends HttpServlet {
 					descontosToSave);
 
 			funcionarioBusiness.salvar(funcionario);
+
+			if (funcionario != null)
+				return true;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+		return false;
 	}
 
 }
