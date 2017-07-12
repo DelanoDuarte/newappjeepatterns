@@ -1,4 +1,4 @@
-package br.com.appjee.controller;
+package br.com.appjee.web;
 
 import java.io.IOException;
 
@@ -40,13 +40,32 @@ public class GratificacaoFormController extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String valor = request.getParameter("valor");
 
-		Double valorToSave = Double.valueOf(valor);
+		boolean result = salvarGratificacao(nome, valor);
 
-		gratificacao = new Gratificacao(nome, valorToSave);
-
-		gratificacaoBusiness.salvar(gratificacao);
+		if (result)
+			request.setAttribute("msg", "Nova Gratificação Cadastrada com Sucesso !");
 
 		request.getRequestDispatcher("/pages/gratificacao/list.jsp").forward(request, response);
+	}
+
+	private boolean salvarGratificacao(String nome, String valor) {
+
+		try {
+
+			Double valorToSave = Double.valueOf(valor);
+
+			gratificacao = new Gratificacao(nome, valorToSave);
+
+			gratificacaoBusiness.salvar(gratificacao);
+
+			if (gratificacao != null)
+				return true;
+
+		} catch (Exception e) {
+
+		}
+
+		return false;
 	}
 
 }

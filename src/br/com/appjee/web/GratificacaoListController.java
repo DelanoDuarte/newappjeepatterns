@@ -1,4 +1,4 @@
-package br.com.appjee.controller;
+package br.com.appjee.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,9 +31,12 @@ public class GratificacaoListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String msg = (String) request.getAttribute("msg");
+
 		List<Gratificacao> gratificacaos = gratificacaoBusiness.buscarTodas();
 
 		request.setAttribute("gratificacoes", gratificacaos);
+		request.setAttribute("msg", msg);
 
 		request.getRequestDispatcher("/pages/gratificacao/list.jsp").forward(request, response);
 	}

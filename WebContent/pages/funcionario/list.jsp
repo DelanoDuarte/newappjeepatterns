@@ -11,7 +11,11 @@
 	<%@ include file="/WEB-INF/tags/menu.jsp"%>	
 	
   <div class="container">
-
+	
+	<c:if test="${not empty msg}">
+		<div class="alert alert-success" role="alert">${msg}</div>
+	</c:if>
+		
 		<div class="col-md-12">
 			<div class="page-header">
 				<div align="center">
@@ -28,7 +32,7 @@
 		
 		
 		<table class="table table-striped table-bordered" cellspacing="0"
-					width="100%">
+							width="100%">
 			
 				<thead>
 				<tr>
@@ -49,7 +53,7 @@
 							<td>
 								<div align="center">
 									<a class="btn btn-success"
-											href="
+													href="
 												<c:url value="/Funcionario/view">
 													<c:param name="funcionarioId" value="${funcionario.id}"/>
 												</c:url>

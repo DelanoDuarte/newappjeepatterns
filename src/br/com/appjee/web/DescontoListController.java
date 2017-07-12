@@ -1,6 +1,7 @@
-package br.com.appjee.controller;
+package br.com.appjee.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -13,40 +14,35 @@ import br.com.appjee.business.DescontoBusiness;
 import br.com.appjee.domain.Desconto;
 
 /**
- * Servlet implementation class DescontoFormController
+ * Servlet implementation class DescontoListController
  */
-@WebServlet("/Desconto/new")
-public class DescontoFormController extends HttpServlet {
+@WebServlet("/Desconto/list")
+public class DescontoListController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private DescontoBusiness descontoBusiness;
 
-	private Desconto desconto;
-
-	public DescontoFormController() {
+	public DescontoListController() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.getRequestDispatcher("/pages/desconto/form.jsp").forward(request, response);
+		String msg = (String) request.getAttribute("msg");
+
+		List<Desconto> descontos = descontoBusiness.buscarTodos();
+
+		request.setAttribute("descontos", descontos);
+		request.setAttribute("msg", msg);
+
+		request.getRequestDispatcher("/pages/desconto/list.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String nome = request.getParameter("nome");
-		String valor = request.getParameter("valor");
-
-		Double valorToSave = Double.valueOf(valor);
-
-		desconto = new Desconto(nome, valorToSave);
-
-		descontoBusiness.salvar(desconto);
-		request.getRequestDispatcher("/pages/desconto/list.jsp").forward(request, response);
 	}
 
 }

@@ -27,14 +27,15 @@
 		<div class="panel-heading">Nova Gratificação</div>
 			 <div class="panel-body">
 			
-		<form action="${pageContext.request.contextPath}/Gratificacao/new" method="post">
+		<form action="${pageContext.request.contextPath}/Gratificacao/new"
+							method="post">
 			<div class="form-group">
 				<label for="nome">Nome da Gratificação:</label> <input type="text"
-						class="form-control" id="nome" name="nome">
+									class="form-control" id="nome" name="nome">
 			</div>
 			<div class="form-group">
 				<label for="valor">Valor:</label> <input type="number"
-						class="form-control" id="valor" name="valor">
+									class="form-control" id="valor" name="valor">
 			</div>
 			<button type="submit" class="btn btn-success">Salvar</button>
 		</form>
