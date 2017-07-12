@@ -1,0 +1,1 @@
+insert into tb_user values (1,'user','user','1234') 

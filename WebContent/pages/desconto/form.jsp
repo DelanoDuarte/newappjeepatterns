@@ -31,17 +31,29 @@
 							method="post">
 			<div class="form-group">
 				<label for="nome">Nome do Desconto:</label> <input type="text"
-									class="form-control" id="nome" name="nome">
+									class="form-control" id="nome" name="nome" required>
 			</div>
 			<div class="form-group">
 				<label for="valor">Valor:</label> <input type="number"
-									class="form-control" id="valor" name="valor">
+									class="form-control" id="valor" name="valor" required>
 			</div>
-			<button type="submit" class="btn btn-success">Salvar</button>
+			
+				<div class="row">	
+					
+					<div align="center">
+						<button type="submit" class="btn btn-success">Salvar</button>
+						<button type="reset" class="btn btn-warning">Limpar</button>
+					</div>
+					
+				</div>
 		</form>
 		
 			</div>
-		</div>	
+		</div>
+			<div align="left">			
+						<a class="btn btn-primary"
+						href="${pageContext.request.contextPath}/Desconto/list">Cancelar</a>
+			</div>	
 	
 	</div>
 	</div>
